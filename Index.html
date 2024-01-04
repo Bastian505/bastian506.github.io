@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleta 0.3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="OCR">
+        <main>
+            <section class="subir-archivo" id="area">
+                <H1>PASO 1: SUBE TU BOLETA</H1>
+                <div class="area">
+                    <label>
+                        <p class="tooltip" title="Sube tu fotogragía.">
+                            <img src="boton.png" alt="">
+                        </p>
+                        <input type="file" hidden id="subir-archivo-boton">
+                    </label>
+                </div>
+            </section>
+
+            <!-- Modal para Cropper.js -->
+            <div id="modalRecortar" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Recorta tu foto</h2>
+                    <img src="" alt="" id="imagen-resultado">
+                    <div class="modal-footer">
+                        <button id="botonRecortar">Recortar</button>
+                        <button id="botonCancelar">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="Procesar-imagen hidden" id="seccionProcesarImagen">
+                <!-- Elemento para mostrar el progreso -->
+                <p id="progreso">ESTAMOS PROCESANDO TU BOLETA: 0%</p>                
+                <img src="" alt="" id="imagen-procesada">
+            </section>
+            <section class="resultados hidden" id="seccionResultados">
+                <h1>PASO 2: ¿VES UN ERROR? PUEDES EDITARLO</h1>
+                <textarea id="texto-convertido" rows="20" cols="50"></textarea>
+                <button onclick="procesarTexto()" id="boton">Procesar</button>
+                <button id="boton-volver">Volver</button>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #015681;
+}
+
+
+/*Modal y recortes de imagen*/ 
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 10px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 2px;
+    border: 1px solid #afafaf;
+    border-radius: 12px;
+    max-width: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-content img {
+    max-width: 90%;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cropper-canvas, .cropper-drag-box, .cropper-crop-box {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+#botonRecortar {
+    background-color: #015681;
+    color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Espacio entre el textarea y el botón */
+}
+
+#botonCancelar {
+    background-color: #015681;
+    color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Espacio entre el textarea y el botón */
+}
+
+/* OCR y procesamiento imagen*/ 
+
+.OCR {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que .OCR ocupe al menos toda la altura de la ventana */
+}
+
+.subir-archivo, .Procesar-imagen, .resultados-ver {
+    width: 100%; /* Asegura que las secciones ocupen todo el ancho disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Espacio entre secciones */
+}
+
+.subir-archivo img {
+    width: 256px;
+    height: 256px;
+}
+
+.area {
+    border: 1px dashed #7c7c7c;
+    border-radius: 10px;
+    max-width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#boton {
+    background-color: #015681;
+    color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Espacio entre el textarea y el botón */
+}
+
+#boton-volver {
+    background-color: #015681;
+    color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Espacio entre el textarea y el botón */
+}
+
+#texto-convertido {
+    border: 1px dashed #7c7c7c;
+    background-color: #83838319;
+    border-radius: 10px;
+    width: 100%; /* Asegura que el textarea ocupe el ancho completo de su contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+#progreso {
+    color: #015681; /* Color del texto */
+    font-size: 1em; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    margin-top: 10px; /* Espacio superior */
+    /* Otros estilos que desees aplicar */
+}
+
+#resultadoOCR {
+    margin-top: 20px;
+}
+
+/* Media Queries para tamaños de pantalla más pequeños */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5em; /* Tamaño de fuente más pequeño para pantallas estrechas */
+    }
+
+    .modal-content {
+        width: 95%; /* Ancho más amplio para aprovechar mejor el espacio en pantallas pequeñas */
+    }
+
+    .subir-archivo img, .area {
+        width: 80%; /* Tamaños más pequeños para mejor adaptación en pantallas estrechas */
+        height: auto;
+    }
+
+    #botonRecortar, #botonCancelar, #boton, #boton-volver {
+        padding: 0.75em; /* Relleno más pequeño para botones en pantallas pequeñas */
+    }
+
+    #texto-convertido {
+        font-size: 0.9em; /* Tamaño de fuente más pequeño para mejor legibilidad */
+    }
+}
+
+.hidden {
+    display: none;
+}
